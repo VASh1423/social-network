@@ -23,14 +23,16 @@ const optimization = () => {
   return config
 }
 
+const fileName = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: './index.js'
+    main: ['@babel/polyfill', './index.jsx'],
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: fileName('js'),
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
@@ -43,11 +45,12 @@ module.exports = {
   devServer: {
     hot: isDev,
     open: true,
-    port: 4200
+    port: 4200,
   },
   experiments: {
     asset: true
   },
+  devtool: isDev ? 'source-map' : false,
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html',
@@ -57,7 +60,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: fileName('css')
     }),
   ],
   module: {
@@ -74,6 +77,22 @@ module.exports = {
           }, "css-loader"],
       },
       {
+        test: /\.less$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "less-loader",
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource',
       },
@@ -88,6 +107,36 @@ module.exports = {
       {
         test: /\.xml$/i,
         use: ['xml-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-typescript']
+          }
+        }
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }, "eslint-loader"] /////fixed
       },
     ]
   }
