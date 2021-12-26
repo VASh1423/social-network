@@ -33,7 +33,8 @@ module.exports = {
   },
   output: {
     filename: fileName('js'),
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -46,6 +47,7 @@ module.exports = {
     hot: isDev,
     open: true,
     port: 4200,
+    historyApiFallback: true,
   },
   experiments: {
     asset: true
@@ -137,6 +139,11 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }, "eslint-loader"] /////fixed
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ]
   }
