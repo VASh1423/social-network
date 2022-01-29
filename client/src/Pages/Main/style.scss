@@ -1,0 +1,19 @@
+@import '../../styles/constants.scss';
+
+.mainContainer{
+  display: flex;
+  background-color: $mainGray;
+  height: calc(100vh - 80px);
+}
+
+.Leftbar{
+  flex: 3;
+}
+
+.Center{
+  flex: 6;
+}
+
+.Rightbar{
+  flex: 3;
+}

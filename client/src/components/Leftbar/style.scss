@@ -1,0 +1,20 @@
+.leftbar{
+  width: calc(100% - 40px);
+  background-color: white;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.leftbarContainer{
+  padding: 20px;
+}
+
+.leftbarList{
+  list-style-type: none;
+  font-size: 20px;
+
+  &.li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
