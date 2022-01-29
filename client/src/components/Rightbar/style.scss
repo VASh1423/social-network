@@ -1,6 +1,7 @@
+@import '../../styles/constants.scss';
+
 .rightbar{
   width: calc(100% - 40px);
-  height: calc(100% - 40px);
   background-color: white;
   margin: 20px;
   border-radius: 20px;
@@ -8,4 +9,24 @@
 
 .rightbarContainer{
   padding: 20px;
+}
+
+.rightbarTitle{
+  margin-left: 8px;
+}
+
+.rightbarList{
+  margin-top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+
+  &.friend{
+    padding: 10px 10px 10px 10px;
+    height: 50px;
+    max-width: 100%;
+
+    &:hover{
+      background-color: $mainGray;
+    }
+  }
 }
