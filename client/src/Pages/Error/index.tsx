@@ -5,7 +5,7 @@ import './style.scss'
 export const Error: React.FC = () => {
   return (
     <MainLayout>
-      Error
+      <div className='errorPage'>Error 404</div>
     </MainLayout>
   )
 }

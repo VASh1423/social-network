@@ -1,0 +1,12 @@
+@import '../../styles/constants.scss';
+
+.errorPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+  font-size: 100px;
+  color: $mainBlue;
+  opacity: 0.5;
+  cursor: default;
+}
