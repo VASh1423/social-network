@@ -1,12 +1,11 @@
 import React from 'react'
-import { Topbar } from '../../components/Topbar'
+import MainLayout from '../../Layouts/MainLayouts'
 import './style.scss'
 
 export const Profile: React.FC = () => {
   return (
-    <div>
-      <Topbar/>
+    <MainLayout>
       Profile
-    </div>
+    </MainLayout>
   )
 }

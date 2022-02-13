@@ -2,13 +2,12 @@ import React from 'react'
 import { Center } from '../../components/Center'
 import { Leftbar } from '../../components/Leftbar'
 import { Rightbar } from '../../components/Rightbar'
-import { Topbar } from '../../components/Topbar'
+import MainLayout from '../../Layouts/MainLayouts'
 import './style.scss'
 
 export const Main: React.FC = () => {
   return (
-    <div>
-      <Topbar/>
+    <MainLayout>
       <div className='mainContainer'>
         <div className='Leftbar'>
           <Leftbar/>
@@ -20,6 +19,6 @@ export const Main: React.FC = () => {
           <Rightbar/>
         </div>
       </div>
-    </div>
+    </MainLayout>
   )
 }
