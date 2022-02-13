@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import './style.scss'
 
-export const Center: React.FC = () => {
+export const Profile: React.FC = () => {
   return (
     <div className='center'>
       <div className="centerContainer">
-        Main page
+        Profile
       </div>
-    </div>
+  </div>
   )
 }
