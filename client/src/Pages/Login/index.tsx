@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Button } from '../../Templates/Button';
+import { Input } from '../../Templates/Input';
 import './style.scss'
 
 export const Login: React.FC = () => {
@@ -8,27 +10,23 @@ export const Login: React.FC = () => {
       <div className="loginWrapper">
         <div className="loginCenter">
           <form className="loginBox">
-            <input 
+            <Input 
               placeholder="Email"
-              className="loginInput" 
               type='email' 
               required
             />
-            <input 
+            <Input 
               placeholder="Password" 
               type='password' 
-              className="loginInput" 
               required
               minLength={6}
             />
-            <button className="loginButton" type="submit">
-              Войти
-            </button>
+            <Button color='#1775ee'>Войти</Button>
             <span className="loginForgot">Забыли пароль?</span>
             <Link to='/register'>
-              <button className="loginRegisterButton">
+              <Button color='#42b72a'>
                 Создать новый аккаунт
-              </button>
+              </Button>
             </Link>
           </form>
         </div>

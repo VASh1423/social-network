@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Button } from '../../Templates/Button';
+import { Input } from '../../Templates/Input';
 import './style.scss'
 
 export const Register: React.FC = () => {
@@ -8,35 +10,33 @@ export const Register: React.FC = () => {
       <div className="registerWrapper">
         <div className="registerCenter">
           <form className="registerBox">
-            <input 
-              placeholder="Username" 
-              className="registerInput" 
+            <Input 
+              placeholder="Username"
+              type='text'
+              required  
             />
-            <input 
+            <Input 
               placeholder="Email" 
               type='email' 
               required 
-              className="registerInput" 
             />
-            <input 
+            <Input 
               placeholder="Password" 
               type='password' 
               required 
-              className="registerInput" 
               minLength={6}
             />
-            <input 
+            <Input 
               placeholder="Password Again" 
               type='password' 
               required 
-              className="registerInput"
               minLength={6}
             />
-            <button className="registerButton" type='submit'>Зарегистрироваться</button>
+            <Button color='#1775ee'>Зарегистрироваться</Button>
             <Link to='/login'>
-              <button className="registerLoginButton">
+              <Button color='#42b72a'>
                 Войти в аккаунт
-              </button>
+              </Button>
             </Link>
           </form>
         </div>
