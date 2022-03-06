@@ -39,7 +39,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@models': path.resolve(__dirname, 'src/models')
+      '@constantsStyles': path.resolve(__dirname, 'src/styles'),
     }
   },
   optimization: optimization(),

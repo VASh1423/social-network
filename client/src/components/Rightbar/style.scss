@@ -1,4 +1,4 @@
-@import '../../styles/constants.scss';
+@import '@constantsStyles/constants.scss';
 
 .rightbar{
   width: calc(100% - 40px);
@@ -13,20 +13,5 @@
 
 .rightbarTitle{
   margin-left: 8px;
-}
-
-.rightbarList{
-  margin-top: 10px;
-  font-size: 20px;
-  cursor: pointer;
-
-  &.friend{
-    padding: 10px 10px 10px 10px;
-    height: 50px;
-    max-width: 100%;
-
-    &:hover{
-      background-color: $mainGray;
-    }
-  }
+  margin-bottom: 10px;
 }
