@@ -1,4 +1,5 @@
 import React from 'react';
+import { Post } from '../Post';
 import { PostCreator } from '../PostCreator';
 import './style.scss'
 
@@ -6,11 +7,11 @@ export const Center: React.FC = () => {
   return (
     <>
       <PostCreator/>
-      <div className='center'>
-        <div className="centerContainer">
-          Main page
-        </div>
-      </div>
+      <Post/>
+      <Post/>
+      <Post/>
+      <Post/>
+      <Post/>
     </>
   )
 }

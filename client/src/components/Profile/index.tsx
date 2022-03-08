@@ -3,8 +3,8 @@ import './style.scss'
 
 export const Profile: React.FC = () => {
   return (
-    <div className='center'>
-      <div className="centerContainer">
+    <div className='centerProfile'>
+      <div className="centerProfileContainer">
         Profile
       </div>
   </div>
