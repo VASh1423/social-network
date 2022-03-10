@@ -3,6 +3,8 @@
 .mainContainer{
   display: flex;
   background-color: $mainGray;
+  min-height: calc(100vh - 80px);
+  height: 100%;
 }
 
 .Leftbar{
