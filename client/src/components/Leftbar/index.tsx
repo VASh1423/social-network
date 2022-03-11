@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss'
 
 export const Leftbar: React.FC = () => {
@@ -6,8 +7,8 @@ export const Leftbar: React.FC = () => {
     <div className='leftbar'>
       <div className="leftbarContainer">
         <ul className='leftbarList'>
-          <li className='leftbarList li'>Profile</li>
-          <li className='leftbarList li'>News</li>
+          <Link to={'/'}><li className='leftbarList li'>News</li></Link>
+          <Link to={'/profile'}><li className='leftbarList li'>Profile</li></Link>
           <li className='leftbarList li'>Message</li>
           <li className='leftbarList li'>Friends</li>
           <li className='leftbarList li'>Settings</li>

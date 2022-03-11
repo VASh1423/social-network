@@ -19,11 +19,9 @@ export const Topbar: React.FC = () => {
         </div>
       </div>
       <div className="topbarRight">
-        <div className="topbarLinks">
-          <Link to='/' className="topbarLink"><span >Главная страница</span></Link>
-          <Link to='/profile' className="topbarLink"><span className="topbarLink">Моя страница</span></Link>
+        <div className='topbarRight exit'>
+          <ExitToApp/>
         </div>
-        <ExitToApp/>
       </div>
     </div>
   )
