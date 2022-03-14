@@ -1,9 +1,9 @@
 const User = require('../models/User')
 
-class userService{
+class usersService{
   async getAll(){
     return await User.find()
   }
 }
 
-module.exports = new userService()
+module.exports = new usersService()
