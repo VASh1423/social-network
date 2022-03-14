@@ -1,6 +1,8 @@
 const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
+const morgan = require('morgan')
+const helmet = require('helmet')
 const userRouter = require('./routers/user.router')
 const authRouter = require('./routers/auth.router')
 const PORT = process.env.PORT||config.get('serverPort')
@@ -8,9 +10,11 @@ const PORT = process.env.PORT||config.get('serverPort')
 const app = express()
 
 app.use(express.json())
+app.use(helmet())
+app.use(morgan('common'))
 
-app.use('/api', userRouter)
-app.use('/api', authRouter)
+app.use('/api/user', userRouter)
+app.use('/api/auth', authRouter)
 
 const start = async () => {
   try {

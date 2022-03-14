@@ -48,6 +48,7 @@ module.exports = {
     open: true,
     port: 4200,
     historyApiFallback: true,
+    proxy: { "/api/**": { target: 'http://localhost:5000', secure: false }  }
   },
   experiments: {
     asset: true

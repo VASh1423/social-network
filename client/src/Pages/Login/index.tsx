@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Button } from '../../Templates/Button';
 import { Input } from '../../Templates/Input';
 import './style.scss'
 
 export const Login: React.FC = () => {
+
   return (
     <div className="login">
       <div className="loginWrapper">
         <div className="loginCenter">
           <form className="loginBox">
-            <Input 
+            {/* <Input 
               placeholder="Email"
               type='email' 
               required
@@ -20,7 +21,7 @@ export const Login: React.FC = () => {
               type='password' 
               required
               minLength={6}
-            />
+            /> */}
             <Button color='#1775ee'>Войти</Button>
             <span className="loginForgot">Забыли пароль?</span>
             <Link to='/register'>
