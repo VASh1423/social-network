@@ -1,10 +1,14 @@
 import React from 'react'
 import { Search, ExitToApp } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import './style.scss'
+import { logout } from '../../store/reducers/userReducer'
 
 export const Topbar: React.FC = () => {
+  const dispatch = useDispatch()
+
   return (
     <div className='topbarContainer'>
       <div className="topbarLeft">
@@ -20,7 +24,7 @@ export const Topbar: React.FC = () => {
       </div>
       <div className="topbarRight">
         <div className='topbarRight exit'>
-          <ExitToApp/>
+          <ExitToApp onClick={() => dispatch(logout())}/>
         </div>
       </div>
     </div>

@@ -52,9 +52,29 @@ class authController{
 
       const token = generateAccessToken(user._id, user.username)
   
-      res.status(200).json({token})
+      return res.status(200).json({token, 
+        user: {
+          id: user.id,
+          email: user.email
+        }
+      })
     } catch (error) {
-      res.status(500).json(error)
+      return res.status(500).json(error)
+    }
+  }
+
+  async auth(req, res){
+    try {
+      const user = await User.findOne({_id: req.user.id})
+      const token = generateAccessToken(user._id, user.username)
+      return res.status(200).json({token, 
+        user: {
+          id: user.id,
+          email: user.email
+        }
+      })
+    } catch (error) {
+      return res.status(500).json(error)
     }
   }
 }
