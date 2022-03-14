@@ -5,7 +5,7 @@ interface InputProps {
   placeholder: string,
   type: string,
   value: string,
-  setValue: any,
+  setValue: Function,
   required?: boolean,
   minLength?: number
 }

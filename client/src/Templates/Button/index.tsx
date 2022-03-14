@@ -3,7 +3,7 @@ import './style.scss'
 
 interface ButtonProps {
   color: string,
-  onClick?: any
+  onClick?: React.MouseEventHandler<HTMLButtonElement>,
 }
 
 export const Button: React.FC<ButtonProps> = ({color, onClick, children}) => {

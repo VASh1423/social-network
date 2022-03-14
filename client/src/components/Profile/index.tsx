@@ -17,8 +17,8 @@ export const Profile: React.FC = () => {
       </div>
       <div className="centerProfileInfo">
         <div className="centerProfileInfoBtns">
-          <Button color='rgb(23, 117, 238)' >+ Add</Button>
-          <Button color='rgb(23, 117, 238)' >Write a message</Button>
+          <Button onClick={() => {}} color='rgb(23, 117, 238)' >+ Add</Button>
+          <Button onClick={() => {}} color='rgb(23, 117, 238)' >Write a message</Button>
         </div>
         <div className="centerProfileInfoInfo">
           <h3 className='centerProfileInfoInfo name'>Full Name</h3>
