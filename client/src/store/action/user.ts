@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setUser } from "../reducers/userReducer";
+import { setUser, setUserData } from "../reducers/userReducer";
 
 export const registration = async (e: any, username: string, email: string, password: string, repeatPassword: string) => {
   e.preventDefault()
@@ -40,6 +40,18 @@ export const auth = () => {
     } catch (error: any) {
       console.log(error.response.data.message);
       localStorage.removeItem('token')
+    }
+  }
+}
+
+export const userData = () => {
+  return async (dispatch: any) => {
+    try {
+      const res = await axios.get('/api/user/622f163b2c904a91ed57acf6')
+      delete res.data.password
+      dispatch(setUserData(res.data))
+    } catch (error: any) {
+      console.log(error.response.data.message)
     }
   }
 }

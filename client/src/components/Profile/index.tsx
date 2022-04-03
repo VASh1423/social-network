@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { userData } from '../../store/action/user'
 import { Button } from '../../Templates/Button'
 import { Post } from '../Post'
 import { PostCreator } from '../PostCreator'
 import './style.scss'
 
 export const Profile: React.FC = () => {
+  const user = useSelector((state: any) => state.user.currentUser)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(userData())    
+  }, [])
+
   return (
     <>
       <div className='centerProfileTop'>
@@ -21,12 +30,12 @@ export const Profile: React.FC = () => {
           <Button onClick={() => {}} color='rgb(23, 117, 238)' >Write a message</Button>
         </div>
         <div className="centerProfileInfoInfo">
-          <h3 className='centerProfileInfoInfo name'>Full Name</h3>
+          <h3 className='centerProfileInfoInfo name'>{user.username}</h3>
           <div className='centerProfileInfoInfo info'>
-            <p>Country: <b>USA</b></p>
-            <p>City: <b>Chicago</b></p>
+            <p>Country: <b>{user.country}</b></p>
+            <p>City: <b>{user.city}</b></p>
             <p>Age: <b>25</b></p>
-            <p>Date of birth: <b>03.12.1995</b></p>
+            <p>Date of birth: <b>{user.dateOfBirth}</b></p>
           </div>
         </div>
       </div>
