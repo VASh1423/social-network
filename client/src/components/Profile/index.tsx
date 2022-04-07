@@ -10,6 +10,9 @@ export const Profile: React.FC = () => {
   const user = useSelector((state: any) => state.user.currentUser)
   const dispatch = useDispatch()
 
+  const date: Date | any = new Date(user.dateOfBirth)
+  const age = Math.floor((Date.now() - date)/31600800000)
+
   useEffect(() => {
     dispatch(userData())    
   }, [])
@@ -18,10 +21,10 @@ export const Profile: React.FC = () => {
     <>
       <div className='centerProfileTop'>
         <div className="centerProfileContainerTop">
-          <img className='centerProfileContainerTop img' src='https://s1.1zoom.ru/b5050/612/Sunrises_and_sunsets_Forests_Scenery_Grass_Rays_of_587227_3840x2160.jpg'/>
+          <img className='centerProfileContainerTop img' src={user.backgroundPhoto}/>
         </div>
         <div className="centerProfileMainImg">
-          <img className='centerProfileMainImg img' src="https://cdn.pixabay.com/photo/2016/11/29/09/42/camera-1868773_1280.jpg" alt="" />
+          <img className='centerProfileMainImg img' src={user.avatar} alt="" />
         </div>
       </div>
       <div className="centerProfileInfo">
@@ -34,13 +37,13 @@ export const Profile: React.FC = () => {
           <div className='centerProfileInfoInfo info'>
             <p>Country: <b>{user.country}</b></p>
             <p>City: <b>{user.city}</b></p>
-            <p>Age: <b>25</b></p>
+            <p>Age: <b>{age ? age : ''}</b></p>
             <p>Date of birth: <b>{user.dateOfBirth}</b></p>
           </div>
         </div>
       </div>
       <PostCreator/>
-      <Post/>
+      <Post username={user.username}/>
     </>
   )
 }

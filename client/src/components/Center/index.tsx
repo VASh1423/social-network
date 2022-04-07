@@ -7,11 +7,11 @@ export const Center: React.FC = () => {
   return (
     <>
       <PostCreator/>
+      {/* <Post/>
       <Post/>
       <Post/>
       <Post/>
-      <Post/>
-      <Post/>
+      <Post/> */}
     </>
   )
 }
