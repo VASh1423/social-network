@@ -5,7 +5,7 @@ const router = new Router()
 
 router.post('/', postsController.createPost)
 
-router.get('/', postsController.getOwnPosts)
+router.get('/:id', postsController.getOwnPosts)
 
 router.get('/posts', postsController.getPosts)
 

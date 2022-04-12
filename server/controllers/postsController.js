@@ -5,7 +5,7 @@ class postsController{
   async createPost(req, res){
     try {
       const newPost = new Posts({
-        userId: req.body._id,
+        userId: req.body.userId,
         description: req.body.description,
         img: req.body.img,
         likes: []

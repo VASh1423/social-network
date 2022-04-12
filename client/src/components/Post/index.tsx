@@ -1,21 +1,23 @@
 import React from 'react'
 import { FavoriteBorder } from '@material-ui/icons';
+import {format} from 'timeago.js'
 import './style.scss'
 
-export const Post: React.FC<{username: string}> = ({username}) => {
+export const Post: React.FC<{user: any, post: any}> = ({user, post}) => {
   return (
     <div className='centerPost'>
         <div className="centerPostContainer">
           <div className="centerPostInfo">
             <div className="centerPostInfo info">
-              <img className='centerPostInfo info infoImg' src="https://cdn.pixabay.com/photo/2016/11/29/09/42/camera-1868773_1280.jpg" alt="" />
+              <img className='centerPostInfo info infoImg' src={user.avatar} alt="" />
               <div>
-                <div className='centerPostInfo info name'>{username}</div>
-                <div className='centerPostInfo info time'>2 days ago</div>
+                <div className='centerPostInfo info name'>{user.username}</div>
+                <div className='centerPostInfo info time'>{format(post.createdAt)}</div>
               </div>
             </div>
             <div className="centerPostInfo post">
-              <img className="centerPostInfo post img" src="https://cdn.pixabay.com/photo/2016/11/29/09/42/camera-1868773_1280.jpg" alt="" />
+              <div className="centerPostInfo post text">{post.description}</div>
+              {post.img && <img className="centerPostInfo post img" src={post.img} alt="" /> }
             </div>
             <div className="centerPostInfo like">
               <FavoriteBorder/>
