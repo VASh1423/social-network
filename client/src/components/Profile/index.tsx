@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOwnPosts } from '../../store/action/posts'
 import { userData } from '../../store/action/user'
@@ -9,7 +9,14 @@ import './style.scss'
 
 export const Profile: React.FC = () => {
   const user = useSelector((state: any) => state.user.currentUser)
-  const posts = useSelector((state: any) => state.posts.ownPosts).reverse()
+  let posts = useSelector((state: any) => state.posts.ownPosts)
+
+  posts = posts.sort((p1:any, p2:any) => {
+    const date1:any = new Date(p2.createdAt)
+    const date2: any = new Date(p1.createdAt)
+    return date1 - date2
+  })
+  
   const dispatch = useDispatch()
 
   const date: Date | any = new Date(user.dateOfBirth)
@@ -17,7 +24,7 @@ export const Profile: React.FC = () => {
 
   useEffect(() => {
     dispatch(userData())    
-    dispatch(getOwnPosts())    
+    dispatch(getOwnPosts())
   }, [])
 
   return (
@@ -46,7 +53,7 @@ export const Profile: React.FC = () => {
         </div>
       </div>
       <PostCreator/>
-      {posts.map((p: any, id: number) => <Post user={user} post={p} key={id}/>)}
+      {posts.map((p: any, id: number) => <Post post={p} key={id}/>)}
     </>
   )
 }

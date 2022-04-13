@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FavoriteBorder } from '@material-ui/icons';
 import {format} from 'timeago.js'
 import './style.scss'
+import axios from 'axios';
 
-export const Post: React.FC<{user: any, post: any}> = ({user, post}) => {
+export const Post: React.FC<{post: any}> = ({post}) => {
+  const [user, setUser]: any = useState({})
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get('/api/user/' + post.userId)
+      setUser(res.data)
+    }
+
+    fetchUser()
+  }, [])
   return (
     <div className='centerPost'>
         <div className="centerPostContainer">

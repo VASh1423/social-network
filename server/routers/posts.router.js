@@ -7,6 +7,6 @@ router.post('/', postsController.createPost)
 
 router.get('/:id', postsController.getOwnPosts)
 
-router.get('/posts', postsController.getPosts)
+router.get('/posts/:id', postsController.getPosts)
 
 module.exports = router
