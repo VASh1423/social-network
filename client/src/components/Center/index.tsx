@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Post } from '../Post';
-import { PostCreator } from '../PostCreator';
 import './style.scss'
 
 export const Center: React.FC = () => {
@@ -15,9 +14,9 @@ export const Center: React.FC = () => {
 
     fetchPosts()
   }, [])
+
   return (
     <>
-      <PostCreator/>
       {posts.map((post, id) => <Post post={post} key={id}/>)}
     </>
   )
