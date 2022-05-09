@@ -23,6 +23,8 @@ export const PostCreator = () => {
     
     dispatch(postOwnPosts(newPost))
 
+    setPostText('')
+
     // try {
     //   await axios.post('api/posts', newPost)
     // } catch (error) {

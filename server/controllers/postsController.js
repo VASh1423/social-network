@@ -37,6 +37,16 @@ class postsController{
       return res.status(500).json(error)
     }
   }
+
+  async changePost(req, res){
+    try {
+      await postsService.getPostAndLike(req.body.id, req.body.userId)
+
+      return res.status(200).json('Post has been updated')
+    } catch (error) {
+      return res.status(500).json(error)
+    }
+  }
 }
 
 module.exports = new postsController()
