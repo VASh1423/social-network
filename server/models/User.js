@@ -10,6 +10,7 @@ const User = new Schema({
   dateOfBirth: {type: String, required: true},
   avatar: {type: String, required: true},
   backgroundPhoto: {type: String, required: true},
+  friends:{type: Array, default: []},
 })
 
 module.exports = model('User', User)

@@ -4,14 +4,11 @@ import {format} from 'timeago.js'
 import './style.scss'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { userData } from '../../store/action/user'
 
 export const Post: React.FC<{post: any}> = ({post}) => {
   const [user, setUser]: any = useState({})
   const [changeColor, setChangeColor] = useState(false)
   const currentUser = useSelector((state: any) => state.user.currentUser)
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -21,10 +18,6 @@ export const Post: React.FC<{post: any}> = ({post}) => {
     }
 
     fetchUser()
-  }, [])
-
-  useEffect(() => {
-    dispatch(userData())    
   }, [])
 
   const handleLike = () => {

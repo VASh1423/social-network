@@ -4,7 +4,6 @@ import { Input } from '../../Templates/Input';
 import { AddAPhoto, MusicNote } from '@material-ui/icons';
 import { useSelector, useDispatch } from 'react-redux'
 import './style.scss'
-import { userData } from '../../store/action/user';
 import axios from 'axios';
 import { postOwnPosts } from '../../store/action/posts';
 
@@ -35,8 +34,8 @@ export const PostCreator = () => {
   return (
     <div className='postCreator'>
       <Input value={postText} setValue={setPostText} type='text' placeholder="What's new?"/>
-      <AddAPhoto style={{color: 'gray', marginLeft: '10px'}}/>
-      <MusicNote style={{color: 'gray', marginLeft: '10px'}}/>
+      <AddAPhoto style={{color: 'gray', marginLeft: '10px', cursor: 'pointer'}}/>
+      <MusicNote style={{color: 'gray', marginLeft: '10px', cursor: 'pointer'}}/>
       <Button onClick={sendPost} color='rgb(23, 117, 238)'>Send</Button>
     </div>
   )
